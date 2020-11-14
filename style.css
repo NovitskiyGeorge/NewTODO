@@ -32,7 +32,7 @@
     font-size: 28px;
     padding: auto;
 }
-.new-task {
+button {
     color: #fff;
     background-color: #0000ff;
     border: 2px solid #fff;
@@ -40,6 +40,7 @@
     font-size: 30px;
     width: 300px;
     height: 60px;
+    cursor: pointer;
 }
 .calendar {
     margin-left: 20px;
@@ -65,6 +66,16 @@
 .day p {
     font-size: 30px;
 }
+.steck {
+    width: 750px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border: 2px solid black;
+    min-height: 400px;
+    top: 300px;
+    left: 20px;
+}
 .circle {    
     font-size: 24px;
     border-radius: 100%;
@@ -79,4 +90,31 @@
     color: #fff;
     right: 20px;
     bottom: 20px;
+    cursor: pointer;
+}
+.new-task {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    width: 700px;
+    height: 40px;
+    background-color: #77889940;
+    border-radius: 10px;
+    
+}
+.new-task .check {
+    display: flex;
+    margin-left: 15px;
+    width: 20px;
+    height: 20px;
+
+}
+.modal {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background-color: #C0C0C099;
+    top: 30%;
+    left: 30%;
+    border-radius: 10px;
 }
