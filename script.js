@@ -5,6 +5,8 @@ let addTask = document.querySelector('.add-task');
 let task = document.querySelector('.new-task');
 let taskCounter = document.querySelector('.count');
 
+let steck = document.querySelector('.steck');
+
 
 
 btn.forEach(function(item, i, arr) {
@@ -16,35 +18,53 @@ btn.forEach(function(item, i, arr) {
 
 
 
-let count = 1;
+let count = 0;
 
 
 function init() {
 
-for(let i=0; i<localStorage.length; i++) {
+for(let i = 0; i < localStorage.length; i++) {
     
     let key = localStorage.key(i);
-    console.log((`${key}: ${localStorage.getItem(key)}`));
-    let newTask = 
 
 
+    if(i == 0){
+
+        let newTask = document.createElement('div');
+        newTask.className = 'new-task';
+        steck.append(newTask);    
+    
+    
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'check';
+        newTask.append(checkbox);
+    
+    
+        let p = document.createElement('p');
+        p.innerHTML = localStorage.getItem(key);
+        newTask.append(p);
+
+    } else {
+
+        let newTask = document.createElement('div');
+        newTask.className = 'new-task';
+        newTask.after(newTask);
 
 
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'check';
+        newTask.append(checkbox);
 
 
-
-
-
-    // let newTask = task.cloneNode(true);
-    // newTask.style.display = 'flex';
-    // newTask.querySelector('p').innerHTML = localStorage.getItem(key);
-    // task.after(newTask);    
-
-
-
+        let p = document.createElement('p');
+        p.innerHTML = localStorage.getItem(key);
+        newTask.append(p);
+    }
   }
-    count = localStorage.length;
-    return count;
+    // count = localStorage.length;
+    // return count;
 }
 
 init();
@@ -53,12 +73,24 @@ init();
 addTask.addEventListener('click',function() {
 
     let text = document.querySelector('.text');
-    let newTask = task.cloneNode(true);
-    newTask.style.display = 'flex';
-    newTask.querySelector('p').innerHTML = text.value;
-    task.after(newTask);    
-  
+
+    let newTask = document.createElement('div');
+    newTask.className = 'new-task';
+    steck.append(newTask);    
+
+
+    let checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'check';
+    newTask.append(checkbox);
+
+
+    let p = document.createElement('p');
+    p.innerHTML = text.value;
+    newTask.append(p);
+
     localStorage.setItem(count, text.value);
+
 
     text.value = '';    
     overlay.style.display = 'none';
@@ -66,8 +98,7 @@ addTask.addEventListener('click',function() {
 
     taskCounter.innerHTML = `tasks: ${count}`;
 
-    console.log(task);
-
+    // window.location.reload();
 
 });
 
@@ -79,13 +110,17 @@ function removeTasks() {
 let taskRemove = document.querySelectorAll('.new-task');
 let checkbox = document.querySelectorAll('.check');
 
+
+
 checkbox.forEach(function(item, i) {
     item.addEventListener('change', function() {
 
     function timeRemove() {
-        taskRemove[i].remove();
-        // console.log(i);
         localStorage.removeItem(i);
+        console.log(i);
+
+        taskRemove[i].remove();
+
     }
 
     setTimeout(timeRemove, 300);
@@ -96,5 +131,4 @@ checkbox.forEach(function(item, i) {
 }
 
 removeTasks();
-
 
