@@ -25,12 +25,23 @@ for(let i=0; i<localStorage.length; i++) {
     
     let key = localStorage.key(i);
     console.log((`${key}: ${localStorage.getItem(key)}`));
-    task.remove();
+    let newTask = 
 
-    let newTask = task.cloneNode(true);
-    newTask.style.display = 'flex';
-    newTask.querySelector('p').innerHTML = localStorage.getItem(key);
-    task.after(newTask);    
+
+
+
+
+
+
+
+
+    // let newTask = task.cloneNode(true);
+    // newTask.style.display = 'flex';
+    // newTask.querySelector('p').innerHTML = localStorage.getItem(key);
+    // task.after(newTask);    
+
+
+
   }
     count = localStorage.length;
     return count;
