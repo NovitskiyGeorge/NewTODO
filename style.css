@@ -95,7 +95,6 @@ button {
 .new-task {
     margin-top: 10px;
     display: flex;
-    display: none;
     align-items: center;
     width: 700px;
     height: 40px;

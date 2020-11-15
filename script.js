@@ -16,23 +16,24 @@ btn.forEach(function(item, i, arr) {
 
 
 
-let count = 0;
+let count = 1;
 
 
 function init() {
 
 for(let i=0; i<localStorage.length; i++) {
-
+    
     let key = localStorage.key(i);
     console.log((`${key}: ${localStorage.getItem(key)}`));
+    task.remove();
 
     let newTask = task.cloneNode(true);
     newTask.style.display = 'flex';
     newTask.querySelector('p').innerHTML = localStorage.getItem(key);
     task.after(newTask);    
   }
-count = localStorage.length;
-return count;
+    count = localStorage.length;
+    return count;
 }
 
 init();
@@ -42,11 +43,10 @@ addTask.addEventListener('click',function() {
 
     let text = document.querySelector('.text');
     let newTask = task.cloneNode(true);
-
     newTask.style.display = 'flex';
     newTask.querySelector('p').innerHTML = text.value;
     task.after(newTask);    
-
+  
     localStorage.setItem(count, text.value);
 
     text.value = '';    
@@ -54,6 +54,9 @@ addTask.addEventListener('click',function() {
     count++;
 
     taskCounter.innerHTML = `tasks: ${count}`;
+
+    console.log(task);
+
 
 });
 
@@ -70,7 +73,10 @@ checkbox.forEach(function(item, i) {
 
     function timeRemove() {
         taskRemove[i].remove();
+        // console.log(i);
+        localStorage.removeItem(i);
     }
+
     setTimeout(timeRemove, 300);
 
     });
@@ -79,3 +85,5 @@ checkbox.forEach(function(item, i) {
 }
 
 removeTasks();
+
+
