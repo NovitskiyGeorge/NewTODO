@@ -36,6 +36,7 @@ function init() {
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'check';
+        checkbox.id = count + 1;
         newTask.append(checkbox);    
     
         let p = document.createElement('p');
@@ -66,6 +67,7 @@ addTask.addEventListener('click',function() {
     let checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'check';
+    checkbox.id = count;
     newTask.append(checkbox);
 
     let p = document.createElement('p');
@@ -94,32 +96,53 @@ addTask.addEventListener('click',function() {
 });
 
 
+
+
+
+
+
+
+
 steck.addEventListener('input', function() {
-    function removeTasks() {
+
         let taskRemove = document.querySelectorAll('.new-task');
         let checkbox = document.querySelectorAll('.check'); 
         count--;  
-        taskCounter.innerHTML = count;      
-        console.log(itemsList);
-
+        taskCounter.innerHTML = count;    
+        // let id = 0;
         
         checkbox.forEach(function(item, i) {
+            item.addEventListener('change', function(event) {
+                let target = event.target;
+                // console.log(target.id);
+                id = target.id;
+                return id;
 
-            // debugger
-            item.addEventListener('change', function() {      
-                
-                itemsList = itemsList.filter(function(item) {
-                   return item.id !== i;
-                });
-                
-
-                setTimeout(() => {            
-                taskRemove[i].remove();            
-                }, 200);    
             });
-        
-        });
-        }
-        removeTasks();
+            console.log(id);        
+
+        });   
+
+
 });
 
+
+
+
+
+
+
+
+
+
+// checkbox.forEach(function(items, i) {
+
+//     items.addEventListener('change', function() { 
+//         setTimeout(() => {            
+//         taskRemove[i].remove();            
+//         }, 200);
+        
+        
+
+
+//     });
