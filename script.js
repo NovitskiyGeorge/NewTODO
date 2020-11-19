@@ -112,9 +112,11 @@ document.addEventListener('click', function(e) {
         taskRemove = document.querySelector(`[id="${id}"]`);
         taskRemove.remove();
 
+
+
         itemsList = itemsList.filter(item => item.id !== id);
 
-        console.log(itemsList);
+        
         
 
     }
