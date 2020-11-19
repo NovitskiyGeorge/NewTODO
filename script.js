@@ -13,7 +13,9 @@ const STORAGE_ITEMS = 'storage-items';
 
 btn.forEach(function(item, i, arr) {
     item.addEventListener('click', function() {
-        overlay.style.display = 'block';     
+        overlay.style.display = 'block';  
+        modal.classList.toggle('modal-active');  
+        addTask.classList.toggle('btn-task-active');
     });
 });
 
@@ -28,7 +30,7 @@ function init() {
         let newTask = document.createElement('div');
         newTask.className = 'new-task';
         newTask.id = count;
-        steck.append(newTask);    
+        steck.prepend(newTask);    
     
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -58,7 +60,7 @@ addTask.addEventListener('click',function() {
     let newTask = document.createElement('div');
     newTask.className = 'new-task';
     newTask.id = count;
-    steck.append(newTask);    
+    steck.prepend(newTask);    
 
     let checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -89,25 +91,63 @@ addTask.addEventListener('click',function() {
     count++;
     taskCounter.innerHTML = count;    
 
+    modal.classList.toggle('modal-start');   
+
+
 });
 
 document.addEventListener('click', function(e) {
     
     if(e.target && e.target.className == 'check') {
 
-        let id = e.target.id;
+            let listTask = document.querySelectorAll('.new-task');
 
-        taskRemove = document.querySelector(`[id="${id}"]`);
-        taskRemove.remove();
 
-        itemsList = itemsList.filter(item => item.id != id);
 
-        localStorage.setItem(STORAGE_ITEMS, JSON.stringify(itemsList));
+            let id = e.target.id;
 
-        count--;
-        taskCounter.innerHTML = count;  
+
+            taskRemove = document.querySelector(`[id="${id}"]`);
+
+            taskRemove.classList.add('remove-task');
+
+            listTask.forEach(function(item, i) {
+                if(item.id < id) {
+                    item.classList.add('upper');
+                }
+            });
+
+
+            // taskRemove.remove();
+
+            function removeItem() {
+                taskRemove.remove();
+                
+                listTask.forEach(function(item, i) {
+                    if(item.id < id) {
+                        item.classList.remove('upper');
+                    }
+                });
+
+            };
+
+            setTimeout(removeItem, 1000);
+
+
+            itemsList = itemsList.filter(item => item.id != id);
+            
+            
+            localStorage.setItem(STORAGE_ITEMS, JSON.stringify(itemsList));
+
+            count--;
+            taskCounter.innerHTML = count;  
+
+
+
+
     }    
 
 });
 
 
+console.log(itemsList);

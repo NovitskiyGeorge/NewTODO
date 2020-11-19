@@ -42,6 +42,8 @@ button {
     height: 60px;
     cursor: pointer;
 }
+
+
 .calendar {
     margin-left: 20px;
     display: flex;
@@ -99,29 +101,52 @@ button {
     width: 700px;
     height: 40px;
     background-color: #77889940;
-    border-radius: 10px;
-    
+    border-radius: 10px;    
+    transition: all 1s;
+
 }
+
+.remove-task {
+    /* background-color: #FFCCCC; */
+    margin-left: 50px;
+    opacity: 0;
+}
+
+.upper {
+    /* transition: all 3s; */
+    animation-duration: 1s;
+    animation-name: up;
+
+}
+
+@keyframes up {
+    from {      
+    }  
+    to {
+      /* top: -200%; */
+      transform: translateY(-125%);
+    }
+  }
+
 .new-task .check {
     display: flex;
     margin-left: 15px;
     margin-right: 15px;
     width: 20px;
     height: 20px;
-    
-
 }
 .modal {
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 400px;
-    height: 200px;
+    width: 10px;
+    height: 10px;
     background-color: #C0C0C099;
-    top: 35%;
+    top: -50%;
     left: 30%;
     border-radius: 10px;
+    transition: all 1s;
 }
 .modal .text {
     margin-top: 20px;
@@ -131,8 +156,25 @@ button {
     resize: none;
     
 }
+.modal-active {
+    top: 35%;
+    width: 400px;    
+    height: 200px;    
+}
+
+
 .modal .add-task {
     margin-top: 20px;
+    border-radius: 10px;
+    font-size: 2px;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+.btn-task-active {    
+    font-size: 30px;
+    width: 300px;
+    height: 60px;
 }
 .overlay {
     position: absolute;
