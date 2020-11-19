@@ -17,10 +17,6 @@ btn.forEach(function(item, i, arr) {
     });
 });
 
-    
-
-
-
 function init() {
 
     itemsList = JSON.parse(localStorage.getItem(STORAGE_ITEMS));
@@ -51,11 +47,9 @@ function init() {
     }
     taskCounter.append(count);
 
-
 }
 
 init();
-
 
 addTask.addEventListener('click',function() {   
 
@@ -76,9 +70,6 @@ addTask.addEventListener('click',function() {
     p.innerHTML = text.value;
     newTask.append(p);   
 
-    count++;
-    taskCounter.innerHTML = count;    
-
     item = {
         id: count,
         text: text.value
@@ -95,15 +86,12 @@ addTask.addEventListener('click',function() {
     text.value = '';    
     overlay.style.display = 'none';
 
+    count++;
+    taskCounter.innerHTML = count;    
+
 });
 
-        let checkbox = document.querySelectorAll('.check'); 
-
-
-
-
 document.addEventListener('click', function(e) {
-
     
     if(e.target && e.target.className == 'check') {
 
@@ -112,45 +100,14 @@ document.addEventListener('click', function(e) {
         taskRemove = document.querySelector(`[id="${id}"]`);
         taskRemove.remove();
 
+        itemsList = itemsList.filter(item => item.id != id);
 
+        localStorage.setItem(STORAGE_ITEMS, JSON.stringify(itemsList));
 
-        itemsList = itemsList.filter(item => item.id !== id);
-
-        
-        
-
-    }
+        count--;
+        taskCounter.innerHTML = count;  
+    }    
 
 });
 
 
-
-// steck.addEventListener('input', function() {
-
-//         let taskRemove = document.querySelectorAll('.new-task');
-//         let checkbox = document.querySelectorAll('.check'); 
-//         count--;  
-//         taskCounter.innerHTML = count;    
-//         // let id = 0;
-
-
-
-
-
-        
-// });
-
-
-
-
-// checkbox.forEach(function(items, i) {
-
-//     items.addEventListener('change', function() { 
-//         setTimeout(() => {            
-//         taskRemove[i].remove();            
-//         }, 200);
-        
-        
-
-
-//     });
