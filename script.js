@@ -31,12 +31,13 @@ function init() {
 
         let newTask = document.createElement('div');
         newTask.className = 'new-task';
+        newTask.id = count;
         steck.append(newTask);    
     
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'check';
-        checkbox.id = count + 1;
+        checkbox.id = count;
         newTask.append(checkbox);    
     
         let p = document.createElement('p');
@@ -62,6 +63,7 @@ addTask.addEventListener('click',function() {
 
     let newTask = document.createElement('div');
     newTask.className = 'new-task';
+    newTask.id = count;
     steck.append(newTask);    
 
     let checkbox = document.createElement('input');
@@ -95,42 +97,46 @@ addTask.addEventListener('click',function() {
 
 });
 
-
-
-
-
-
-
-
-
-steck.addEventListener('input', function() {
-
-        let taskRemove = document.querySelectorAll('.new-task');
         let checkbox = document.querySelectorAll('.check'); 
-        count--;  
-        taskCounter.innerHTML = count;    
-        // let id = 0;
+
+
+
+
+document.addEventListener('click', function(e) {
+
+    
+    if(e.target && e.target.className == 'check') {
+
+        let id = e.target.id;
+
+        taskRemove = document.querySelector(`[id="${id}"]`);
+        taskRemove.remove();
+
+        itemsList = itemsList.filter(item => item.id !== id);
+
+        console.log(itemsList);
         
-        checkbox.forEach(function(item, i) {
-            item.addEventListener('change', function(event) {
-                let target = event.target;
-                // console.log(target.id);
-                id = target.id;
-                return id;
 
-            });
-            console.log(id);        
-
-        });   
-
+    }
 
 });
 
 
 
+// steck.addEventListener('input', function() {
+
+//         let taskRemove = document.querySelectorAll('.new-task');
+//         let checkbox = document.querySelectorAll('.check'); 
+//         count--;  
+//         taskCounter.innerHTML = count;    
+//         // let id = 0;
 
 
 
+
+
+        
+// });
 
 
 
