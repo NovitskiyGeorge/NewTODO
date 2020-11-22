@@ -2,7 +2,8 @@
     margin: 0;
 }
 
-.rectangle {
+
+.main {
     position: relative;
     margin: auto;
     height: 900px;
@@ -16,11 +17,53 @@
     background-color: #0000ff;
     border-radius: 40px 40px 0 0;
 }
-.header .upper {
+.header .up {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+}
+.burger {
+    width: 45px;
+    height: 45px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border: none;
+}
+.burger :first-child {
+    margin-top: 0;
+}
+.first {
+    width: 30px;
+    height: 2px;
+    margin-top: 8px;
+    background-color: #FFF;
+    transition: all 0.5s;
+}
+.second {
+    width: 30px;
+    height: 2px;
+    margin-top: 8px;
+    background-color: #FFF;
+    transition: all 0.5s;
+
+}
+.third {
+    width: 30px;
+    height: 2px;
+    margin-top: 8px;
+    background-color: #FFF;
+    transition: all 0.5s;
+
+}
+.first.active {
+    transform: rotate(45deg) translateY(14px);
+}
+.second.active {
+    width: 0;
+}
+.third.active {
+    transform: rotate(-45deg) translateY(-14px);
 }
 .header h1 {
     padding-top: 20px;
@@ -29,24 +72,36 @@
 }
 .switch {
     display: flex;
+    width: 50px;
+    height: 40px;
+    margin-right: 50px;
+    margin-top: 20px;
+    border: none;
     flex-direction: column;
-    justify-content: center;
-    
+    align-items: center;
+
 }
 .switch .top {
+    display: flex;
     width: 10px;
     height: 10px;
-    margin-right: 50px;
     color: #fff;
     border: #fff solid 2px;
     border-radius: 100%;
 }
 .switch .bottom {
-    width: 15px;    
+    margin-top: 5px;
+    display: flex;
+    width: 25px;    
+    height: 10px;
     color: #fff;
     border: #fff solid 2px;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
 
 }
+
+
 .header-footer {
     margin: 20px;    
     display: flex;
@@ -70,6 +125,7 @@ button {
     width: 300px;
     height: 60px;
     cursor: pointer;
+    outline: none;
 }
 
 
@@ -141,7 +197,7 @@ button {
     opacity: 0;
 }
 
-.headerper {
+.upper {
     /* transition: all 3s; */
     animation-duration: 1s;
     animation-name: header;
@@ -214,4 +270,54 @@ button {
     height: 100%;
     background-color: #00000090;
     transition: 3s;
+    border-radius: 43px 43px;
+}
+
+
+/* Темная тема */
+
+.dark-theme {
+    background-color:#5F9EA0;
+    color: #000000;
+    border: 2px solid #2F4F4F;    
+}
+.dark-theme .header {    
+    color:#000000;
+    background-color: #2F4F4F;
+}
+.dark-theme .switch {
+    border: none;
+}
+.dark-theme .switch .top {
+    border: solid 2px  #000000;    
+}
+.dark-theme .switch .bottom {
+    border: solid 2px  #000000;  
+    border-bottom: none;  
+}
+.dark-theme button {
+    border: 2px solid #000000;
+    color: #000000;
+    background-color: #2F4F4F;
+}
+.dark-theme h1 {
+    color:#000000;    
+}
+.dark-theme .today-tasks {
+    color:#000000;    
+}
+.dark-theme .circle {
+    background-color:  #2F4F4F;
+    color:#000000;
+}
+.dark-theme .day {
+    background-color: #A9A9A9;
+}
+.dark-theme .new-task{
+    background-color:#808080;
+}
+.dark-theme .burger {
+    
+    border: none;
+
 }

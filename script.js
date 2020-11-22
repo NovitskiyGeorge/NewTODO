@@ -4,6 +4,14 @@ let modal = document.querySelector('.modal');
 let addTask = document.querySelector('.add-task');
 let taskCounter = document.querySelector('.count');
 let steck = document.querySelector('.steck');
+let btnSwitch = document.querySelector('.switch');
+let main = document.querySelector('.main');
+let btnBurger = document.querySelector('.burger');
+let firstLine = document.querySelector('.first');
+let secondLine = document.querySelector('.second');
+let thirdLine = document.querySelector('.third');
+
+
 
 let count = 0;
 let item;
@@ -132,4 +140,15 @@ document.addEventListener('click', function(e) {
             count--;
             taskCounter.innerHTML = count;  
     }    
+});
+
+
+btnSwitch.addEventListener('click', function() {
+    main.classList.toggle('dark-theme');
+});
+
+btnBurger.addEventListener('click', function() {
+    firstLine.classList.toggle('active');
+    secondLine.classList.toggle('active');
+    thirdLine.classList.toggle('active');
 });
