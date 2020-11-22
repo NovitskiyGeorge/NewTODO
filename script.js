@@ -42,13 +42,11 @@ function init() {
         p.innerHTML = item.text;
         newTask.append(p);   
 
-        count++;
-        
+        count++;        
     });
 
     }
     taskCounter.append(count);
-
 }
 
 init();
@@ -91,7 +89,8 @@ addTask.addEventListener('click',function() {
     count++;
     taskCounter.innerHTML = count;    
 
-    modal.classList.toggle('modal-start');   
+    modal.classList.toggle('modal-active');  
+    addTask.classList.toggle('btn-task-active');
 
 
 });
@@ -102,52 +101,35 @@ document.addEventListener('click', function(e) {
 
             let listTask = document.querySelectorAll('.new-task');
 
-
-
-            let id = e.target.id;
-
+            let id = +e.target.id;
 
             taskRemove = document.querySelector(`[id="${id}"]`);
 
             taskRemove.classList.add('remove-task');
 
             listTask.forEach(function(item, i) {
-                if(item.id < id) {
-                    item.classList.add('upper');
+                if(+item.id < +id) {
+                    item.classList.toggle('upper');
                 }
             });
-
-
-            // taskRemove.remove();
 
             function removeItem() {
                 taskRemove.remove();
                 
                 listTask.forEach(function(item, i) {
-                    if(item.id < id) {
-                        item.classList.remove('upper');
+                    if(+item.id < +id) {
+                        item.classList.toggle('upper');
                     }
                 });
+            }
 
-            };
+            setTimeout(removeItem, 900);
 
-            setTimeout(removeItem, 1000);
-
-
-            itemsList = itemsList.filter(item => item.id != id);
-            
+            itemsList = itemsList.filter(item => item.id != id);            
             
             localStorage.setItem(STORAGE_ITEMS, JSON.stringify(itemsList));
 
             count--;
             taskCounter.innerHTML = count;  
-
-
-
-
     }    
-
 });
-
-
-console.log(itemsList);
