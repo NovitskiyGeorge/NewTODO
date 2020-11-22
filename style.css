@@ -10,31 +10,50 @@
     border: 2px solid #0000ff;
     border-radius: 43px 43px;
 }
-.up {
+.header {
     height: 200px;
     width: 100%;
     background-color: #0000ff;
     border-radius: 40px 40px 0 0;
+}
+.header .upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
-.up h1 {
+.header h1 {
     padding-top: 20px;
     color: #fff;
     text-align: center;
 }
-.up-footer {
+.switch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.switch .top {
+    width: 10px;
+    height: 10px;
+    margin-right: 50px;
+    color: #fff;
+    border: #fff solid 2px;
+    border-radius: 100%;
+}
+.switch .bottom {
+    width: 15px;    
+    color: #fff;
+    border: #fff solid 2px;
+
+}
+.header-footer {
     margin: 20px;    
     display: flex;
     justify-content: space-between;
     padding: 20px 60px 10px 60px;
 }
-.up .switch {
-    width: 10px;
-    height: 10px;
-    color: #fff;
-    border: #fff solid 2px;
-    border-radius: 100%;
-}
+
 .today-tasks {
     color: #fff;
     width: 150px;
@@ -122,14 +141,14 @@ button {
     opacity: 0;
 }
 
-.upper {
+.headerper {
     /* transition: all 3s; */
     animation-duration: 1s;
-    animation-name: up;
+    animation-name: header;
 
 }
 
-@keyframes up {
+@keyframes header {
     from {      
     }  
     to {
