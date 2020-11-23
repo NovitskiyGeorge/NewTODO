@@ -10,6 +10,7 @@ let btnBurger = document.querySelector('.burger');
 let firstLine = document.querySelector('.first');
 let secondLine = document.querySelector('.second');
 let thirdLine = document.querySelector('.third');
+let slide = document.querySelectorAll('.day');
 
 
 
@@ -152,3 +153,4 @@ btnBurger.addEventListener('click', function() {
     secondLine.classList.toggle('active');
     thirdLine.classList.toggle('active');
 });
+

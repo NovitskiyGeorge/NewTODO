@@ -316,8 +316,9 @@ button {
 .dark-theme .new-task{
     background-color:#808080;
 }
-.dark-theme .burger {
-    
+.dark-theme .burger {    
     border: none;
-
+}
+.dark-theme .burger p {
+    background-color: #000000;
 }
