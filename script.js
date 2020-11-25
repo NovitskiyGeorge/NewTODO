@@ -3,7 +3,7 @@ let overlay = document.querySelector('.overlay');
 let modal = document.querySelector('.modal');
 let addTask = document.querySelector('.add-task');
 let taskCounter = document.querySelector('.count');
-let steck = document.querySelector('.steck');
+let stack = document.querySelector('.stack');
 let btnSwitch = document.querySelector('.switch');
 let main = document.querySelector('.main');
 let btnBurger = document.querySelector('.burger');
@@ -35,7 +35,7 @@ function init() {
         let newTask = document.createElement('div');
         newTask.className = 'new-task';
         newTask.id = count;
-        steck.prepend(newTask);    
+        stack.prepend(newTask);    
     
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -58,7 +58,7 @@ addTask.addEventListener('click',function() {
     let newTask = document.createElement('div');
     newTask.className = 'new-task';
     newTask.id = count;
-    steck.prepend(newTask);    
+    stack.prepend(newTask);    
 
     let checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
