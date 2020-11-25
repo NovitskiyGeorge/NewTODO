@@ -8,68 +8,74 @@
 </head>
 <body>
 
-    <div class="rectangle">
-        <div class="up">
-            <h1>TASKS</h1>
-            <div class="up-footer">
-                <div class="today-tasks">Today
-                    <p class="count">tasks</p>
+    <div class="main">
+        <div class="header">
+            <div class="up">
+                <button class="burger">
+                    <p class="first"></p>
+                    <p class="second"></p>
+                    <p class="third"></p>
+
+                </button>
+                <h1>TASKS</h1>
+                <button class="switch">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </button>
+            </div>
+
+            <div class="header-footer">
+                <div class="today-tasks">Today  
+                    <p>tasks: <span class="count"></span></p>
                 </div>
-                <button class="btn-task">+ NEW TASK</button>
+                <button class="btn-task" id="btn">+ NEW TASK</button>
             </div>
         </div>
         <div class="calendar">
             <div class="day">
-                <p class="number">03</p>
+                <p>03</p>
                 Fri
             </div>
             <div class="day">
-                <p class="number">04</p>
+                <p>04</p>
                 Sat
             </div>
             <div class="day">
-                <p class="number">05</p>
+                <p>05</p>
                 San
             </div>
             <div class="day">
-                <p class="number">06</p>
+                <p>06</p>
                 Mon
             </div>
             <div class="day">
-                <p class="number">07</p>
+                <p>07</p>
                 Tue
             </div>
             <div class="day">
-                <p class="number">08</p>
+                <p>08</p>
                 Wed
             </div>
             <div class="day">
-                <p class="number">09</p>
+                <p>09</p>
                 Thu
             </div>
         </div>
-        <div class="steck">
-            <div class="new-task">
-                <input type="checkbox" class="check">
-                <p></p>
-            </div>
-        </div>
+        <div class="stack"></div>
 
-        <div class="circle">+</div>
+        <div class="circle" id="btn">+</div>
 
     <div class="overlay">
-        <div class="modal">
-            <textarea name="" class="text" cols="30" rows="10"></textarea>
-            <button class="add-task" >add task</button>
-        </div>
-    </div>
 
     </div>
-    
 
+    <div class="modal">
+        <textarea name="" class="text" cols="30" rows="10"></textarea>
+        <button class="add-task" >add task</button>
+    </div>
+    </div>
 
-
-    
+    </div> 
     <script src="script.js"></script>
 </body>
 </html>
